@@ -36,6 +36,7 @@
         <div class="d-block mx-5">
             <nav class="d-flex justify-content-between">
                 <nav class="d-flex">
+                    <a href="unduh.php" class="btn-sm btn-info mx-1" id="unduh-btn">↓ Unduh PDF</a>
                     <a href="form-daftar.php" class="btn-sm btn-info mx-1" id="daftar-btn-3">+ Daftar Baru</a>
                 </nav>
             </nav>
