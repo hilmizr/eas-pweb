@@ -1,5 +1,5 @@
 <?php  
- //login_success.php  
+ include '../config.php';
  session_start();  
  if(isset($_SESSION["username"]))  
  { 
@@ -30,14 +30,13 @@
                 <a href="dashboard.php" class="d-flex justify-content-center">
                     <img src="../assets/img/logo.png" alt="" class="img-fluid auth-logo">
                 </a>
-                <a href="admin/dashboard.php" class="fw-bold btn btn-dark px-5 m-auto" id="daftar-btn">Dashboard</a>
+                <a href="dashboard.php" class="fw-bold btn btn-dark px-5 m-auto" id="daftar-btn">Dashboard</a>
             </div>
 
 
             <div class="d-flex flex-column gap-3">
                 <div class="text-center">
                     <p class="m-0 fw-bold fs-3"><?=$_SESSION["username"] ?></p>
-                    <p><?php echo $_SESSION["id"] ?></p>
                 </div>
                 <a href="logout.php" class="fw-bold btn btn-dark px-5 m-auto" id="daftar-btn">Keluar</a>
             </div>
@@ -47,18 +46,24 @@
 
         <article class="py-5 px-3 flex-grow-1">
             <h1 class="heading-title">Dashboard Panitia</h1>
-            <p class="fs-5 mb-4 ">Selamat datang, Subhan!</p>
+            <p class="fs-5 mb-4 ">Selamat datang, <?php echo $_SESSION["username"] ?>!</p>
 
             <div>
-
+                <?php 
+                    $query = "SELECT nama, nik, foto_diri FROM pendaftar";  
+                    $statement = $pdo->prepare($query);
+                    $statement->execute();
+                    $arr = $statement->fetchAll();
+                ?>
                 <div class="card card-member mb-3">
+                    <?php foreach($arr as $item) { ?> 
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center gap-4">
-                                <img src="../assets/img/logo.png" alt="Foto Profil" class="img-fluid img-profile">
+                                <img src="../images/<?=$item['foto_diri']?>" alt="Foto Profil" class="img-fluid img-profile">
                                 <div>
-                                    <p class="card-title fw-bold fs-5 mb-0">Banyu Tirta Baradus</p>
-                                    <p class="card-text">3525017006620060</p>
+                                    <p class="card-title fw-bold fs-5 mb-0"><?=$item['nama'] ?></p>
+                                    <p class="card-text"><?=$item['nik']?></p>
                                 </div>
                             </div>
                             <div>
@@ -67,8 +72,8 @@
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
-
             </div>
         </article>
     </main>

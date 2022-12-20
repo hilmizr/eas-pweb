@@ -25,9 +25,9 @@
     $fotodiri = date('dmYHis').$foto_diri;
     $fotoijazah = date('dmYHis').$ijazah;
     // Set path folder tempat menyimpan fotonya
-    $path1 = "images/".$foto_ktp;
-    $path2 = "images/".$foto_diri;
-    $path3 = "images/".$ijazah;
+    $path1 = "images/".$fotoktp;
+    $path2 = "images/".$fotodiri;
+    $path3 = "images/".$fotoijazah;
     // Proses upload
     if(move_uploaded_file($tmpktp, $path1) && move_uploaded_file($tmpdr, $path2) && move_uploaded_file($tmpij, $path3)){ // Cek apakah gambar berhasil diupload atau tidak
     // Proses simpan ke Database
