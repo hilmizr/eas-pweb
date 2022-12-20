@@ -20,7 +20,7 @@
             <div class="profile">
                 <img src="images/baradus.png" alt="Profile Picture" class="profile-picture">
                 <div class="username-and-id">
-                    <span class="username">Username</span>
+                    <span class="username">BaradouzJeh</span>
                     <span class="id-number">3525015306780002</span>
                 </div>
                 <a href="daftar.php" class="fw-semibold btn btn-brand me-2" id="logout-btn">Keluar</a>
@@ -36,13 +36,13 @@
                             <div class="card-body">
                                 <h1 class="card-title" id="main-title">Profil Pendaftar</h1>
                                 <h5 class="card-title" id="card-label">Nama</h5>
-                                <p class="card-text">User name</p>
+                                <p class="card-text">Banyu Tirta Baradus</p>
                                 <h5 class="card-title mt-3" id="card-label">NIK</h5>
-                                <p class="card-text">User email</p>
+                                <p class="card-text">3525015306780002</p>
                                 <h5 class="card-title mt-3" id="card-label">Pilihan Jabatan</h5>
-                                <p class="card-text">User phone number</p>
+                                <p class="card-text">Supervisor</p>
                                 <h5 class="card-title mt-3" id="card-label">Status Pendaftaran</h5>
-                                <p class="card-text">User phone number</p>
+                                <p class="card-text">Belum Diverifikasi</p>
                             </div>
                         </div>
                         <div class="col-md-4">
