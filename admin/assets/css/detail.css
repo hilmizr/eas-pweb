@@ -1,0 +1,75 @@
+/* Variables */
+
+:root {
+    --c-dark: #060913;
+    --c-dark-gray: #090E1D;
+    --c-gray: #0F1730;
+    --c-glass: hsla(0, 0%, 0%, 0.35);
+    --c-glass-2: hsla(0, 0%, 0%, 0.75);
+    --c-light: #EEEEEE;
+    --c-brand: #35479F;
+    --c-brand-light: #627BF3;
+    --c-alert-berhasil: #B8C4FF;
+    --c-alert-gagal: --c-brand-rgb: 66, 182, 240;
+    --c-body: #727272;
+    --font-base: 'Montserrat', sans-serif;
+    --box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.75);
+    --transition: all 0.5s ease;
+}
+    
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-base);
+    line-height: 1.7;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+body {
+    background-image: url(../img/BG.png);
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+sidebar {
+    background-color: var(--c-dark-gray);
+}
+
+.heading-title {
+    color: var(--c-brand);
+}
+
+.auth-logo {
+    object-fit: cover;
+    width: 60%;
+    min-height: auto;
+}
+
+.img-profile {
+    max-width: 16rem;
+    /* width: 40%; */
+}
+
+.btn-dark {
+    background-color: var(--c-brand);
+    width: fit-content;
+    color: var(--c-dark);
+}
+
+.btn-dark-outline {
+    border: 1px solid var(--c-brand);
+    width: fit-content;
+    color: #FFFFFF;
+}
+
+.card-member {
+    background-color: var(--c-dark-gray);
+}
+
+.select-status {
+    background-color: var(--c-gray);
+    border: 0;
+}
