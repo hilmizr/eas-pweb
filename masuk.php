@@ -14,11 +14,11 @@
 <body class="fixed">
     <div class="merged">
 
-        <!-- Hero -->
+        <!-- Login Card -->
         <section id="hero" class="min-vh-100 d-flex align-items-center text-center">
             <div class="container">
                 <div class="row">
-                    <div class="col-12" id="hero-content">
+                    <div class="col-12" id="login-card">
                         <img src="https://kkp.go.id/an-component/media/upload-gambar-pendukung/kkp/DATA%20KKP/2019/Logo%20KKP/KKP%20Ind.png" alt="" class="auth-logo mb-4">
                         <h4 class="mt-0 mb-4" id="subtitle">Dibutuhkan pegawai baru untuk menjalankan tugas di wilayah Provinsi Jawa Timur</h4>
                         <div>
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </section>
-        
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
