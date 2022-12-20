@@ -33,7 +33,7 @@
                     <p class="m-0 fw-bold fs-3">SubhanJiran</p>
                     <p>3525011711086062</p>
                 </div>
-                <a href="admin/masuk.php" class="fw-bold btn btn-dark px-5 m-auto" id="daftar-btn">Keluar</a>
+                <a href="../admin/masuk.php" class="fw-bold btn btn-dark px-5 m-auto" id="daftar-btn">Keluar</a>
             </div>
 
         </sidebar>

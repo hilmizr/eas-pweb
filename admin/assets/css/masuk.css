@@ -24,7 +24,6 @@
         box-sizing: border-box;
         font-family: var(--font-base);
         line-height: 1.7;
-        color: var(--c-body);
         font-weight: 600;
     }
     

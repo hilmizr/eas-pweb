@@ -1,3 +1,9 @@
+<?php  
+ //login_success.php  
+ session_start();  
+ if(isset($_SESSION["username"]))  
+ { 
+?>  
 <!DOCTYPE html>
 <html>
 
@@ -30,10 +36,10 @@
 
             <div class="d-flex flex-column gap-3">
                 <div class="text-center">
-                    <p class="m-0 fw-bold fs-3">SubhanJiran</p>
-                    <p>3525011711086062</p>
+                    <p class="m-0 fw-bold fs-3"><?=$_SESSION["username"] ?></p>
+                    <p><?php echo $_SESSION["id"] ?></p>
                 </div>
-                <a href="masuk.php" class="fw-bold btn btn-dark px-5 m-auto" id="daftar-btn">Keluar</a>
+                <a href="logout.php" class="fw-bold btn btn-dark px-5 m-auto" id="daftar-btn">Keluar</a>
             </div>
 
         </sidebar>
@@ -71,3 +77,10 @@
 </body>
 
 </html>
+<?php  
+ }  
+ else  
+ {  
+      header("location: masuk.php");  
+ }  
+ ?> 
