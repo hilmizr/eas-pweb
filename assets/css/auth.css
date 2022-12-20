@@ -1,0 +1,121 @@
+    /* Variables */
+    
+    :root {
+        --c-dark: #060913;
+        --c-dark-gray: #090E1D;
+        --c-gray: #0F1730;
+        --c-glass: hsla(0, 0%, 0%, 0.35);
+        --c-glass-2: hsla(0, 0%, 0%, 0.75);
+        --c-light: #EEEEEE;
+        --c-brand: #33FF56;
+        --c-brand-light: #62F37B;
+        --c-alert-berhasil: #BDFAC7;
+        --c-alert-gagal: --c-brand-rgb: 66, 182, 240;
+        --c-body: #727272;
+        --font-base: 'Montserrat', sans-serif;
+        --box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.75);
+        --transition: all 0.5s ease;
+    }
+    /* Helpers */
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: var(--font-base);
+        line-height: 1.7;
+        color: var(--c-body);
+        font-weight: 600;
+    }
+    
+    a {
+        text-decoration: none;
+        color: var(--c-brand);
+        transition: var(--transition);
+    }
+    
+    a:hover {
+        color: var(--c-brand-light);
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .section-padding {
+        padding-top: 140px;
+        padding-bottom: 140px;
+    }
+    
+    .merged {
+        background-image: url(../img/BG.png);
+        background-position: center;
+        background-size: cover;
+    }
+    
+    body {
+        background-image: url(../img/BG.png);
+        margin: 0;
+        height: 100%;
+    }
+    
+    .fixed {
+        overflow: hidden;
+        display: block;
+    }
+ 
+    /* Hero */
+
+    .auth-logo {
+        object-fit: cover;
+        width: 25%;
+        min-height: auto;
+    }
+
+    #subtitle {
+        font-weight: 400;
+        color: var(--c-light);
+        font-size: 1rem;
+        align-self: center;
+        width: 500px;
+    }
+    
+    .btn {
+        display: inline-block;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 45px;
+        border-radius: 12px;
+        font-size: 1.2rem;
+        transition: all .4s ease-in-out;
+    }
+    
+    .btn:hover {
+        box-shadow: 0 0 10px var(--c-brand);
+        text-shadow: 0 0 10px var(--c-brand);
+    }
+    
+    #daftar-btn {
+        background-color: var(--c-brand);
+        border: 2px solid transparent;
+        color: var(--c-dark);
+        transition: all .4s ease-in-out;
+    }
+    
+    #masuk-btn {
+        color: var(--c-light);
+        background-color: transparent;
+        border: 2px solid var(--c-brand);
+        transition: all .4s ease-in-out;
+    }
+        
+    #hero-content {
+        margin-top: -50px;
+        position: relative;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        display: flex;
+    }
+   
