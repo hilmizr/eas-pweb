@@ -9,6 +9,7 @@
         --c-light: #EEEEEE;
         --c-brand: #33FF56;
         --c-brand-light: #62F37B;
+        --c-tidak: #FF3333;
         --c-alert-berhasil: #BDFAC7;
         --c-alert-gagal: --c-brand-rgb: 66, 182, 240;
         --c-body: #727272;
@@ -137,6 +138,25 @@
         transition: all .4s ease-in-out;
         width: 100%;
     }
+
+    #kartu-btn {
+        color: var(--c-dark);
+        background-color: var(--c-brand);
+        border: transparent;
+        transition: all .4s ease-in-out;
+        width: 100%;
+        font-weight: 600;
+    }
+
+
+    #card-text-green {
+        color: var(--c-brand);
+    }
+    #card-text-red {
+        color: var(--c-tidak);
+    }
+
+
 
     #main-title {
         color: var(--c-brand);
