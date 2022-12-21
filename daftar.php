@@ -41,7 +41,17 @@
                             </div>
                         </div>
 
-                        <form action="proses_daftar.php" method="POST" enctype="multipart/form-data">
+                        <?php if (isset($_COOKIE["error"])) : ?>
+                            <div class="alert alert-danger alert-dismissible fade show my-3" role="alert">
+                                <strong class="text-danger"><?= $_COOKIE["title"] ?></strong>
+                                <?php if ($_COOKIE["error"] == "database" || $_COOKIE["error"] == "database") : ?>
+                                    <p> <?= $_COOKIE["message"] ?> </p>
+                                <?php endif ?>
+                                <button id="alertButton" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php endif ?>
+
+                        <form id="registerForm" action="proses_daftar.php" method="POST" enctype="multipart/form-data">
 
                             <!- Accordion -->
                                 <div class="accordion accordion-flush" id="accordionRegister">
@@ -103,10 +113,10 @@
                                                 <div class="mb-3 row">
                                                     <label class="form-label">Tempat dan Tanggal Lahir</label>
                                                     <div class="col-12 col-lg-6">
-                                                        <input type="text" class="form-control bg-gray border-0 py-3 text-white" id="birthCity" placeholder="Kota Kelahiran">
+                                                        <input type="text" class="form-control bg-gray border-0 py-3 text-white" id="birthCity" name="birthCity" placeholder="Kota Kelahiran">
                                                     </div>
                                                     <div class="col-12 col-lg-6">
-                                                        <input type="DATE" class="form-control bg-gray border-0 py-3 text-white" id="birthDate">
+                                                        <input type="DATE" class="form-control bg-gray border-0 py-3 text-white" id="birthDate" name="birthDate">
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
@@ -165,7 +175,7 @@
                                                     <input style="display:none;" class="form-control bg-gray border-0 form-control-lg" type="file" id="certificate" name="certificate">
                                                 </div>
 
-                                                <button class="btn collapsed w-100 buttonAccordionPrimary mb-3 fw-bolder" type="submit">
+                                                <button id="submitButton" class="btn collapsed w-100 buttonAccordionPrimary mb-3 fw-bolder">
                                                     Submit
                                                 </button>
 
