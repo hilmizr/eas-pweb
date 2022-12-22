@@ -97,13 +97,13 @@
                                                     <label for="gender" class="form-label">Jenis Kelamin</label>
                                                     <div class="d-flex align-items-center gap-3">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="gender" id="genderMale">
+                                                            <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Laki-laki">
                                                             <label class="form-check-label text-white" for="genderMale">
                                                                 Laki-Laki
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="gender" id="genderFemale">
+                                                            <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Perempuan">
                                                             <label class="form-check-label text-white" for="genderFemale">
                                                                 Perempuan
                                                             </label>

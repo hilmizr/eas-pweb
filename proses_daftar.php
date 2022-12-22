@@ -51,7 +51,7 @@ if (move_uploaded_file($tempKTP, $path1) && move_uploaded_file($tempProfilePhoto
         (username, password, email, nik, nama, kelamin, tempat_lahir, tgl_lahir, pendidikan, alamat, jabatan, foto_ktp, foto_diri, ijazah) 
         VALUES(:username, :password, :email, :nik, :nama, :kelamin, :tempat_lahir, :tgl_lahir, :pendidikan, :alamat, :jabatan, :foto_ktp, :foto_diri, :ijazah)");
     $sql->bindParam(':username', $username);
-    $sql->bindParam(':password', $password_hashed);
+    $sql->bindParam(':password', $password);
     $sql->bindParam(':email', $email);
     $sql->bindParam(':nik', $nik);
     $sql->bindParam(':nama', $name);
