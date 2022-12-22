@@ -73,3 +73,10 @@ sidebar {
     background-color: var(--c-gray);
     border: 0;
 }
+
+.bg-input{
+    background-color: #0F1730;
+    border-style: none;
+    border-radius: 10px;
+    width: 100%;
+}

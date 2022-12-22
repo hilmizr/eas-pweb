@@ -93,7 +93,7 @@ if (isset($_SESSION["username"])) {
                                 <form action="proses_update.php" method="post">
                                     <input type="hidden" name="id" value="<?= $pendaftar['id'] ?>" />
                                     <div>
-                                        <h3 class="fs-2">Status Pendaftaran</h3>
+                                        <h3 class="fs-2 mt-4">Status Pendaftaran</h3>
                                         <?php
                                         if($pendaftar['status'] == null){
                                             echo
@@ -119,6 +119,13 @@ if (isset($_SESSION["username"])) {
                                         }
                                         ?>
                                     </div>
+                                    <?php if ($pendaftar['status'] == '1'){
+                                        echo '<div>
+                                                <label for="lokasi_tes" class="d-block"> <h3 class="fs-4 fw-normal mb-0 my-4">Lokasi Tes</h3></label>
+                                                <input type="text" class="bg-input border-0 py-3 px-2 text-white" id="location" name="location">
+                                            </div>';
+                                    }
+                                    ?>
                                     <div class="my-4 d-flex gap-4">
                                         <button type="submit" class="fw-bold btn btn-dark w-50 py-3 fs-4" id="daftar-btn">Simpan</button>
                                         <a href="dashboard.php" class="fw-semibold btn btn-dark-outline w-50 py-3 fs-4" id="daftar-btn">Kembali</a>

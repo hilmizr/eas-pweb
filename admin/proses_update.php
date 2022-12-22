@@ -6,7 +6,11 @@ $id = $_POST['id'];
 // Ambil Data yang Dikirim dari Form
 $status = $_POST['status'];
 $noPeserta = 0;
+$location = 0;
+
 if($status == 1){
+    $location = $_POST['location'];
+
     if($id < 10){
         $noPeserta = "NP-0000".$id;
     }
@@ -24,10 +28,11 @@ if($status == 1){
     }
 }
 // Proses ubah data ke Database
-$sql = $pdo->prepare("UPDATE pendaftar SET status=:status, no_peserta=:no_peserta WHERE id=:id");
+$sql = $pdo->prepare("UPDATE pendaftar SET status=:status, no_peserta=:no_peserta, lokasi_tes=:lokasi_tes WHERE id=:id");
 $sql->bindParam(':id', $id);
 $sql->bindParam(':status', $status);
 $sql->bindParam(':no_peserta', $noPeserta);
+$sql->bindParam(':lokasi_tes', $location);
 $execute = $sql->execute(); // Eksekusi / Jalankan query
 if($sql){ // Cek jika proses simpan ke database sukses atau tidak
     // Jika Sukses, Lakukan :

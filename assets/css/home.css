@@ -148,6 +148,16 @@
         font-weight: 600;
     }
 
+    #kartu-btn-tidak {
+        color: var(--c-dark);
+        background-color: var(--c-tidak);
+        border: transparent;
+        transition: all .4s ease-in-out;
+        width: 100%;
+        font-weight: 600;
+        pointer-events: none;
+    }
+
 
     #card-text-green {
         color: var(--c-brand);
