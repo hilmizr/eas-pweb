@@ -5,10 +5,29 @@ include "../config.php";
 $id = $_POST['id'];
 // Ambil Data yang Dikirim dari Form
 $status = $_POST['status'];
+$noPeserta = 0;
+if($status == 1){
+    if($id < 10){
+        $noPeserta = "NP-0000".$id;
+    }
+    else if($id < 100){
+        $noPeserta = "NP-000".$id;
+    }
+    else if($id < 1000){
+        $noPeserta = "NP-00".$id;
+    }
+    else if($id < 10000){
+        $noPeserta = "NP-0".$id;
+    }
+    else if($id < 100000){
+        $noPeserta = "NP-".$id;
+    }
+}
 // Proses ubah data ke Database
-$sql = $pdo->prepare("UPDATE pendaftar SET status=:status WHERE id=:id");
+$sql = $pdo->prepare("UPDATE pendaftar SET status=:status, no_peserta=:no_peserta WHERE id=:id");
 $sql->bindParam(':id', $id);
 $sql->bindParam(':status', $status);
+$sql->bindParam(':no_peserta', $noPeserta);
 $execute = $sql->execute(); // Eksekusi / Jalankan query
 if($sql){ // Cek jika proses simpan ke database sukses atau tidak
     // Jika Sukses, Lakukan :

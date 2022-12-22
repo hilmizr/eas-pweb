@@ -68,8 +68,27 @@ if (isset($_SESSION["username"])) {
                                     <p class="fs-2 fw-bold"><?=$pendaftar['nik']?></p>
                                 </div>
                                 <div>
+                                    <h3 class="fs-4 fw-normal mb-0">Jenis Kelamin</h3>
+                                    <p class="fs-2 fw-bold"><?=$pendaftar['kelamin']?></p>
+                                </div>
+                                <div>
+                                    <h3 class="fs-4 fw-normal mb-0">Alamat</h3>
+                                    <p class="fs-2 fw-bold"><?=$pendaftar['alamat']?></p>
+                                </div>
+                                <div>
+                                    <h3 class="fs-4 fw-normal mb-0">Pendidikan terakhir</h3>
+                                    <p class="fs-2 fw-bold"><?=$pendaftar['pendidikan']?></p>
+                                </div>
+                                <div>
                                     <h3 class="fs-4 fw-normal mb-0">Pilihan Jabatan</h3>
                                     <p class="fs-2 fw-bold"><?=$pendaftar['jabatan']?></p>
+                                </div>
+                                <div>
+                                    <h3 class="fs-4 fw-normal mb-0">Berkas</h3>
+                                    <div class="d-flex my-2 gap-4">
+                                        <a href="../images/<?= $pendaftar['foto_ktp'] ?>" class="fw-semibold btn btn-info w-50 py-3 fs-4" id="daftar-btn">KTP</a>
+                                        <a href="../images/<?= $pendaftar['ijazah'] ?>" class="fw-semibold btn btn-info w-50 py-3 fs-4" id="daftar-btn">Ijazah</a>
+                                    </div>
                                 </div>
                                 <form action="proses_update.php" method="post">
                                     <input type="hidden" name="id" value="<?= $pendaftar['id'] ?>" />
