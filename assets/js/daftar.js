@@ -56,3 +56,17 @@ function reset(navPoints, hrLeft, hrRight) {
   hrRight.classList.add("horizontalLineInactive");
   hrRight.classList.remove("horizontalLineActive");
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .getElementById("submitButton")
+    .addEventListener("click", function () {
+      document.getElementById("registerForm").submit();
+    });
+
+  document.getElementById("alertButton").addEventListener("click", function () {
+    document.cookie = "error" + "=; Max-Age=0";
+    document.cookie = "title" + "=; Max-Age=0";
+    document.cookie = "message" + "=; Max-Age=0";
+  });
+});
