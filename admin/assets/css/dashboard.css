@@ -62,21 +62,21 @@ sidebar {
     border: 1px solid var(--c-brand);
     color: #FFFFFF;
     cursor: default !important;
-    width: 250px;
+    width: 300px;
 }
 
 .btn-lolos {
     background-color: #28a745;
     color: #FFFFFF;
     cursor: default !important;
-    width: 250px;
+    width: 300px;
 }
 
 .btn-nlolos {
     background-color: #dc3545;
     color: #FFFFFF;
     cursor: default !important;
-    width: 250px;
+    width: 300px;
 }
 
 .card-member {

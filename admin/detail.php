@@ -29,7 +29,7 @@ if (isset($_SESSION["username"])) {
                 <a href="dashboard.php" class="d-flex justify-content-center">
                     <img src="../assets/img/logo.png" alt="" class="img-fluid auth-logo">
                 </a>
-                <a href="admin/dashboard.php" class="fw-bold btn btn-dark px-5 m-auto" id="daftar-btn">Detail Pendaftar</a>
+                <a href="dashboard.php" class="fw-bold btn btn-dark px-5 m-auto" id="daftar-btn">Detail Pendaftar</a>
             </div>
 
 
