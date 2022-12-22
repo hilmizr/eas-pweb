@@ -90,20 +90,20 @@
                                                     <input type="text" class="form-control bg-gray border-0 py-3 text-white" id="nik" name="nik">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="nama" class="form-label">Nama</label>
-                                                    <input type="text" class="form-control bg-gray border-0 py-3 text-white" id="nama" name="nama">
+                                                    <label for="name" class="form-label">Nama</label>
+                                                    <input type="text" class="form-control bg-gray border-0 py-3 text-white" id="nama" name="name">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="jenis" class="form-label">Jenis Kelamin</label>
+                                                    <label for="gender" class="form-label">Jenis Kelamin</label>
                                                     <div class="d-flex align-items-center gap-3">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="kelamin" id="genderMale">
+                                                            <input class="form-check-input" type="radio" name="gender" id="genderMale">
                                                             <label class="form-check-label text-white" for="genderMale">
                                                                 Laki-Laki
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="kelamin" id="genderFemale">
+                                                            <input class="form-check-input" type="radio" name="gender" id="genderFemale">
                                                             <label class="form-check-label text-white" for="genderFemale">
                                                                 Perempuan
                                                             </label>
@@ -120,8 +120,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="pendidikan" class="form-label">Pendidikan Terakhir</label>
-                                                    <select class="form-select bg-gray border-0 py-3 text-white" id="education" name="pendidikan">
+                                                    <label for="education" class="form-label">Pendidikan Terakhir</label>
+                                                    <select class="form-select bg-gray border-0 py-3 text-white" id="education" name="education">
                                                         <option selected value="">-</option>
                                                         <option value="SMA/SMK">SMA/SMK</option>
                                                         <option value="S1">S1</option>
@@ -131,7 +131,7 @@
                                                 </div>
                                                 <div class="mb-4">
                                                     <label for="address" class="form-label">Alamat</label>
-                                                    <input type="text" class="form-control bg-gray border-0 py-3 text-white" id="address" name="alamat">
+                                                    <input type="text" class="form-control bg-gray border-0 py-3 text-white" id="address" name="address">
                                                 </div>
 
                                                 <button onclick="navToThirdAccordion()" class="btn collapsed w-100 buttonAccordionPrimary mb-3 fw-bolder" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
@@ -150,8 +150,8 @@
                                         <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionRegister">
                                             <div class="accordion-body">
                                                 <div class="mb-3">
-                                                    <label for="jabatan" class="form-label">Jabatan Pilihan</label>
-                                                    <select class="form-select bg-gray border-0 py-3 text-white" id="position" name="jabatan">
+                                                    <label for="position" class="form-label">Jabatan Pilihan</label>
+                                                    <select class="form-select bg-gray border-0 py-3 text-white" id="position" name="position">
                                                         <option selected value="">-</option>
                                                         <option value="Teknisi Lapangan">Teknisi Lapangan</option>
                                                         <option value="Operator">Operator</option>
@@ -160,19 +160,19 @@
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="foto_ktp" class="form-label">KTP</label>
-                                                    <label for="foto_ktp" class="form-label btn w-100 py-3 bg-gray d-flex justify-content-between"><span></span><span class="ms-0 bg-brand h-100 px-3 rounded">Upload</span></label>
-                                                    <input style="display:none;" class="form-control bg-gray border-0 form-control-lg" type="file" id="foto_ktp" name="foto_ktp">
+                                                    <label for="ktp" class="form-label">KTP</label>
+                                                    <label for="ktp" class="form-label btn w-100 py-3 bg-gray d-flex justify-content-between"><span></span><span class="ms-0 bg-brand h-100 px-3 rounded">Upload</span></label>
+                                                    <input style="display:none;" class="form-control bg-gray border-0 form-control-lg" type="file" id="ktp" name="ktp">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="foto_diri" class="form-label">Foto Diri</label>
-                                                    <label for="foto_diri" class="form-label btn w-100 py-3 bg-gray d-flex justify-content-end"><span></span><span class="ms-0 bg-brand h-100 px-3 rounded">Upload</span></label>
-                                                    <input style="display:none;" class="form-control bg-gray border-0 form-control-lg" type="file" id="foto_diri" name="foto_diri">
+                                                    <label for="profilePhoto" class="form-label">Foto Diri</label>
+                                                    <label for="profilePhoto" class="form-label btn w-100 py-3 bg-gray d-flex justify-content-end"><span></span><span class="ms-0 bg-brand h-100 px-3 rounded">Upload</span></label>
+                                                    <input style="display:none;" class="form-control bg-gray border-0 form-control-lg" type="file" id="profilePhoto" name="profilePhoto">
                                                 </div>
                                                 <div class="mb-4">
-                                                    <label for="ijazah" class="form-label">Ijazah</label>
-                                                    <label for="ijazah" class="form-label btn w-100 py-3 bg-gray d-flex justify-content-end"><span></span><span class="ms-0 bg-brand h-100 px-3 rounded">Upload</span></label>
-                                                    <input style="display:none;" class="form-control bg-gray border-0 form-control-lg" type="file" id="ijazah" name="ijazah">
+                                                    <label for="certificate" class="form-label">Ijazah</label>
+                                                    <label for="certificate" class="form-label btn w-100 py-3 bg-gray d-flex justify-content-end"><span></span><span class="ms-0 bg-brand h-100 px-3 rounded">Upload</span></label>
+                                                    <input style="display:none;" class="form-control bg-gray border-0 form-control-lg" type="file" id="certificate" name="certificate">
                                                 </div>
 
                                                 <button id="submitButton" class="btn collapsed w-100 buttonAccordionPrimary mb-3 fw-bolder">
