@@ -1,3 +1,8 @@
+<?php
+include '../config.php';
+session_start();
+if (isset($_SESSION["username"])) {
+?>
 <!DOCTYPE html>
 <html>
 
@@ -30,8 +35,7 @@
 
             <div class="d-flex flex-column gap-3">
                 <div class="text-center">
-                    <p class="m-0 fw-bold fs-3">SubhanJiran</p>
-                    <p>3525011711086062</p>
+                    <p class="m-0 fw-bold fs-3"><?=$_SESSION['username']?></p>
                 </div>
                 <a href="../admin/masuk.php" class="fw-bold btn btn-dark px-5 m-auto" id="daftar-btn">Keluar</a>
             </div>
@@ -41,41 +45,70 @@
 
         <article class="py-5 px-3 flex-grow-1">
             <h1 class="heading-title">Dashboard Panitia</h1>
-            <p class="fs-5 mb-4 ">Selamat datang, Subhan!</p>
+            <p class="fs-5 mb-4 ">Selamat datang, <?=$_SESSION['username']?>!</p>
 
             <div>
                 <div class="card card-member p-4">
                     <div class="card-body d-flex flex-column gap-5">
                         <div class="d-flex">
                             <div class="d-flex flex-column  gap-2" style="flex: 1">
+                            <?php
+                                $id = $_GET['id'];
+                                $query = "SELECT * FROM pendaftar WHERE id = $id";
+                                $statement = $pdo->prepare($query);
+                                $statement->execute();
+                                $pendaftar = $statement->fetch();
+                            ?>
                                 <div>
                                     <h3 class="fs-4 fw-normal mb-0">Nama</h3>
-                                    <p class="fs-2 fw-bold">Banyu Tirta Baradus</p>
+                                    <p class="fs-2 fw-bold"><?=$pendaftar['nama']?></p>
                                 </div>
                                 <div>
                                     <h3 class="fs-4 fw-normal mb-0">NIK</h3>
-                                    <p class="fs-2 fw-bold">3525015306780002</p>
+                                    <p class="fs-2 fw-bold"><?=$pendaftar['nik']?></p>
                                 </div>
                                 <div>
                                     <h3 class="fs-4 fw-normal mb-0">Pilihan Jabatan</h3>
-                                    <p class="fs-2 fw-bold">Raja Pantai Utara</p>
+                                    <p class="fs-2 fw-bold"><?=$pendaftar['jabatan']?></p>
                                 </div>
-                                <div>
-                                    <h3 class="fs-2">Status Pendaftaran</h3>
-                                    <select class="form-select select-status py-3 text-white fw-bolder" aria-label="Default select example">
-                                        <option selected class="py-3 fw-bolder">Belum Diverifikasi</option>
-                                        <option value="1" class="p-3 fw-bolder text-success" style="padding: 3rem !important;">Lolos Berkas</option>
-                                        <option value="2" class="p-3 fw-bolder text-danger">Tidak Lolos Berkas</option>
-                                    </select>
-                                </div>
+                                <form action="proses_update.php" method="post">
+                                    <input type="hidden" name="id" value="<?= $pendaftar['id'] ?>" />
+                                    <div>
+                                        <h3 class="fs-2">Status Pendaftaran</h3>
+                                        <?php
+                                        if($pendaftar['status'] == null){
+                                            echo
+                                            '<select class="form-select select-status py-3 text-white fw-bolder" name="status" aria-label="Default select example">
+                                                <option selected class="py-3 fw-bolder" >Belum Diverifikasi</option>
+                                                <option value="1"  class="p-3 fw-bolder text-success" style="padding: 3rem !important;">Lolos Berkas</option>
+                                                <option value="2"  class="p-3 fw-bolder text-danger">Tidak Lolos Berkas</option>
+                                            </select>';
+                                        } else if($pendaftar['status'] == '1'){
+                                            echo
+                                            '<select class="form-select select-status py-3 text-white fw-bolder" name="status" aria-label="Default select example">
+                                                <option class="py-3 fw-bolder" >Belum Diverifikasi</option>
+                                                <option selected value="1"  class="p-3 fw-bolder text-success" style="padding: 3rem !important;">Lolos Berkas</option>
+                                                <option value="2"  class="p-3 fw-bolder text-danger">Tidak Lolos Berkas</option>
+                                            </select>';
+                                        } else if($pendaftar['status'] == '2'){
+                                            echo
+                                            '<select class="form-select select-status py-3 text-white fw-bolder" name="status" aria-label="Default select example">
+                                                <option class="py-3 fw-bolder" >Belum Diverifikasi</option>
+                                                <option value="1"  class="p-3 fw-bolder text-success" style="padding: 3rem !important;">Lolos Berkas</option>
+                                                <option selected value="2"  class="p-3 fw-bolder text-danger">Tidak Lolos Berkas</option>
+                                            </select>';
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="my-4 d-flex gap-4">
+                                        <button type="submit" class="fw-bold btn btn-dark w-50 py-3 fs-4" id="daftar-btn">Simpan</button>
+                                        <a href="dashboard.php" class="fw-semibold btn btn-dark-outline w-50 py-3 fs-4" id="daftar-btn">Kembali</a>
+                                    </div>
+                                </form>
                             </div>
                             <div style="flex: 1" class="p-5 d-flex justify-content-center align-items-start">
-                                <img src="../assets/img/logo.png" alt="Foto Profil" class="img-fluid img-profile">
+                                <img src=../images/<?= $pendaftar['foto_diri'] ?> alt="Foto Profil" class="img-fluid img-profile">
                             </div>
-                        </div>
-                        <div class="d-flex gap-4">
-                            <a href="detail.php" class="fw-bold btn btn-dark w-50 py-3 fs-4" id="daftar-btn">Simpan</a>
-                            <a href="detail.php" class="fw-semibold btn btn-dark-outline w-50 py-3 fs-4" id="daftar-btn">Kembali</a>
                         </div>
                     </div>
                 </div>
@@ -88,3 +121,8 @@
 </body>
 
 </html>
+<?php
+} else {
+    header("location: masuk.php");
+}
+?>

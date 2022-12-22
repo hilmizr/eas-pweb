@@ -62,9 +62,9 @@ if (isset($_SESSION["username"])) {
                                     <h5 class="card-title mt-3" id="card-label">Status Pendaftaran</h5>
                                     <?php if ($user["status"] === null) {
                                         echo '<p class="card-text">Belum Diverifikasi</p>';
-                                    } else if ($user["status"] == 'Lolos Berkas') {
+                                    } else if ($user["status"] == '1') {
                                         echo '<p class="card-text" id="card-text-green">Lolos Berkas</p>';
-                                    } else if ($user["status"] == 'Tidak Lolos Berkas') {
+                                    } else if ($user["status"] == '2') {
                                         echo '<p class="card-text" id="card-text-red">Tidak Lolos Berkas</p>';
                                     } ?>
                                 </div>
@@ -74,9 +74,9 @@ if (isset($_SESSION["username"])) {
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-center">
-                            <?php if ($user["status"] === null || $user["status"] == 'Tidak Lolos Berkas') {
+                            <?php if ($user["status"] === null || $user["status"] == '2') {
                                 echo '<a href="#" class="btn mt-4" id="edit-btn">Edit</a>';
-                            } else if ($user["status"] == 'Lolos Berkas') { 
+                            } else if ($user["status"] == '1') { 
                                     echo '<a href="#" class="btn mt-4" id="kartu-btn">Lihat Kartu Ujian</a>';
                             } ?>
                         </div>

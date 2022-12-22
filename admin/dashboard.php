@@ -49,7 +49,7 @@ if (isset($_SESSION["username"])) {
 
                 <div>
                     <?php
-                    $query = "SELECT nama, nik, foto_diri FROM pendaftar";
+                    $query = "SELECT id, nama, nik, status, foto_diri FROM pendaftar";
                     $statement = $pdo->prepare($query);
                     $statement->execute();
                     $arr = $statement->fetchAll();
@@ -66,8 +66,14 @@ if (isset($_SESSION["username"])) {
                                         </div>
                                     </div>
                                     <div>
-                                        <button type="button" class="fw-semibold btn btn-dark-outline px-5 m-auto" id="daftar-btn">Belum Diverifikasi</button>
-                                        <a href="detail.php" class="fw-bold btn btn-dark px-5 m-auto" id="daftar-btn">Detail</a>
+                                        <?php if ($item["status"] === null) {
+                                            echo '<p class="fw-semibold btn btn-dark-outline px-5 m-auto">Belum Diverifikasi</p>';
+                                        } else if ($item["status"] == '1') {
+                                            echo '<p class="fw-semibold btn btn-lolos px-5 m-auto" id="card-text-green">Lolos Berkas</p>';
+                                        } else if ($item["status"] == '2') {
+                                            echo '<p class="fw-semibold btn btn-nlolos px-5 m-auto" id="card-text-red">Tidak Lolos Berkas</p>';
+                                        } ?>
+                                        <?="<a href='detail.php?id=".$item['id']."' class='fw-bold btn btn-dark px-5 m-auto' id='daftar-btn'>Detail</a>"?>
                                     </div>
                                 </div>
                             </div>

@@ -60,9 +60,23 @@ sidebar {
 
 .btn-dark-outline {
     border: 1px solid var(--c-brand);
-    width: fit-content;
     color: #FFFFFF;
     cursor: default !important;
+    width: 250px;
+}
+
+.btn-lolos {
+    background-color: #28a745;
+    color: #FFFFFF;
+    cursor: default !important;
+    width: 250px;
+}
+
+.btn-nlolos {
+    background-color: #dc3545;
+    color: #FFFFFF;
+    cursor: default !important;
+    width: 250px;
 }
 
 .card-member {

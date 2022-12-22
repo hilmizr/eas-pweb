@@ -19,7 +19,7 @@
     $tmpdr = $_FILES['foto_diri']['tmp_name'];
     $tmpij = $_FILES['ijazah']['tmp_name'];
     //Hashing password
-    // $password_hashed = password_hash($password, PASSWORD_DEFAULT);
+    $password_hashed = password_hash($password, PASSWORD_DEFAULT);
     // Rename nama fotonya dengan menambahkan tanggal dan jam upload
     $fotoktp = date('dmYHis').$foto_ktp;
     $fotodiri = date('dmYHis').$foto_diri;
@@ -35,7 +35,7 @@
         (username, password, nik, nama, kelamin, tempat_lahir, tgl_lahir, pendidikan, alamat, jabatan, foto_ktp, foto_diri, ijazah) 
         VALUES(:username, :pwd, :nik, :nama, :kelamin, :tempat_lahir, :tgl_lahir, :pendidikan, :alamat, :jabatan, :foto_ktp, :foto_diri, :ijazah)");
     $sql->bindParam(':username', $username);
-    $sql->bindParam(':pwd', $password);       
+    $sql->bindParam(':pwd', $password_hashed);       
     $sql->bindParam(':nik', $nik);
     $sql->bindParam(':nama', $nama);
     $sql->bindParam(':kelamin', $kelamin);

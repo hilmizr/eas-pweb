@@ -14,7 +14,7 @@ $message = "";
       {  
            if(empty($_POST["username"]) || empty($_POST["password"]))  
            {  
-                $message = '<label class="d-flex justify-content-center">All fields are required</label>';  
+                $message = 'All fields are required';  
            }  
            else  
            {  
@@ -34,7 +34,7 @@ $message = "";
                 }  
                 else  
                 {  
-                     $message = '<label class="d-flex justify-content-center">Wrong Data</label>';  
+                     $message = 'Wrong Data';  
                 }  
            }  
       }
@@ -79,11 +79,11 @@ $message = "";
                                 <fieldset class="my-4">
                                 <p>
                                     <label for="username" class="d-block text-start">Username: </label>
-                                    <input type="text" name="username" maxlength="50" class="my-2 py-3 bg-input" size="48"/>
+                                    <input type="text" name="username" maxlength="50" class="my-2 py-3 bg-input px-2" size="48"/>
                                 </p>
                                 <p>
                                     <label for="password" class="d-block text-start">Password: </label>
-                                    <input type="password" name="password" maxlength="50" class="my-2 py-3 bg-input" size="48"/>
+                                    <input type="password" name="password" maxlength="50" class="my-2 py-3 bg-input px-2" size="48"/>
                                 </p>
                                 <p class="d-flex justify-content-center my-4">
                                     <input type="submit" value="Masuk" name="login" class="fw-bold btn btn-brand me-2" id="masuk-btn"/>
