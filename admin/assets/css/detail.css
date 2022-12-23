@@ -48,11 +48,6 @@ sidebar {
     min-height: auto;
 }
 
-.img-profile {
-    max-width: 16rem;
-    /* width: 40%; */
-}
-
 .btn-dark {
     background-color: var(--c-brand);
     width: fit-content;
