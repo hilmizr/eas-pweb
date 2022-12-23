@@ -45,10 +45,7 @@ try {
     $tempCertificateName = $_FILES['certificate']['tmp_name'];
 
     //Hashing password
-    $options = [
-        'cost' => 10,
-    ];
-    $password_hashed = password_hash($password, PASSWORD_BCRYPT);
+    // $password_hashed = password_hash($password, PASSWORD_BCRYPT);
 
     // Rename nama fotonya dengan menambahkan tanggal dan jam upload
     $ktp = date('dmYHis') . $ktpName;
