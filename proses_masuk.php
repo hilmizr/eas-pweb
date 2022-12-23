@@ -3,7 +3,7 @@
 include 'config.php';
 session_start();
 
-function redirectAndFlashMessage(string $url, string $error, string $title, string $message = "")
+function redirectAndSendFlashMessage(string $url, string $error, string $title, string $message = "")
 {
     $_SESSION['error'] = $error;
     $_SESSION['title'] = $title;
@@ -25,11 +25,11 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if (empty($_POST["username"]) || empty($_POST["password"])) {
-        redirectAndFlashMessage(
-            url: 'masuk.php',
-            error: 'required',
-            title: 'Username dan password tidak boleh dikosongi!',
-            message: "Silakan coba lagi."
+        redirectAndSendFlashMessage(
+            'masuk.php',
+            'required',
+            'Username dan password tidak boleh dikosongi!',
+            "Silakan coba lagi."
         );
         return;
     }
@@ -39,10 +39,10 @@ try {
     $sql->execute();
 
     if ($sql->rowCount() <= 0) {
-        redirectAndFlashMessage(
-            url: 'masuk.php',
-            error: 'notFound',
-            title: 'Pengguna tidak terdaftar!',
+        redirectAndSendFlashMessage(
+            'masuk.php',
+            'notFound',
+            'Pengguna tidak terdaftar!',
         );
         return;
     }
@@ -50,10 +50,10 @@ try {
     $result = $sql->fetch(PDO::FETCH_ASSOC);
 
     if ($password != $result['password']) {
-        redirectAndFlashMessage(
-            url: 'masuk.php',
-            error: 'password',
-            title: 'Username atau password tidak valid!',
+        redirectAndSendFlashMessage(
+            'masuk.php',
+            'password',
+            'Username atau password tidak valid!',
         );
         return;
     }
@@ -64,14 +64,13 @@ try {
     );
 
     redirectAndSetSession('home.php', $vars);
-
     return;
 } catch (PDOException $error) {
-    redirectAndFlashMessage(
-        url: 'masuk.php',
-        error: 'database',
-        title: 'Terjadi kesalahan saat menghubungkan ke database.',
-        message: 'Silakan coba lagi.',
+    redirectAndSendFlashMessage(
+        'masuk.php',
+        'database',
+        'Terjadi kesalahan saat menghubungkan ke database.',
+        'Silakan coba lagi.',
     );
     return;
 }

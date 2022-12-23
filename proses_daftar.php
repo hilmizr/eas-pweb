@@ -3,7 +3,7 @@
 include "config.php";
 session_start();
 
-function redirectAndFlashMessage(string $url, string $error, string $title, string $message = "")
+function redirectAndSendFlashMessage(string $url, string $error, string $title, string $message = "")
 {
     $_SESSION['error'] = $error;
     $_SESSION['title'] = $title;
@@ -29,10 +29,10 @@ try {
 
     // Password Checking
     if ($password != $confirmPassword) {
-        redirectAndFlashMessage(
-            url: 'daftar.php',
-            error: 'password',
-            title: 'Password tidak sama!',
+        redirectAndSendFlashMessage(
+            'daftar.php',
+            'password',
+            'Password tidak sama!',
         );
         return;
     }
@@ -61,11 +61,11 @@ try {
     // Cek apakah gambar berhasil diupload atau tidak
     if (!(move_uploaded_file($tempKTP, $path1) && move_uploaded_file($tempProfilePhoto, $path2) && move_uploaded_file($tempCertificateName, $path3))) {
         // Jika gambar gagal diupload, Lakukan :
-        redirectAndFlashMessage(
-            url: 'daftar.php',
-            error: 'image',
-            title: "Terjadi kesalahan saat menyimpan file.",
-            message: "Silakan coba lagi."
+        redirectAndSendFlashMessage(
+            'daftar.php',
+            'image',
+            "Terjadi kesalahan saat menyimpan file.",
+            "Silakan coba lagi."
         );
         return;
     }
@@ -94,11 +94,11 @@ try {
     // Cek jika proses simpan ke database sukses atau tidak
     if (!$sql) {
         // Jika Gagal, Lakukan :
-        redirectAndFlashMessage(
-            url: 'daftar.php',
-            error: 'database',
-            title: "Terjadi kesalahan saat mencoba untuk menyimpan data ke database.",
-            message: "Silakan coba lagi."
+        redirectAndSendFlashMessage(
+            'daftar.php',
+            'database',
+            "Terjadi kesalahan saat mencoba untuk menyimpan data ke database.",
+            "Silakan coba lagi."
         );
         return;
     }
@@ -106,11 +106,11 @@ try {
     // Jika Sukses, Lakukan :
     header("location: index.php"); // Redirect ke halaman index.php
 } catch (Error $error) {
-    redirectAndFlashMessage(
-        url: 'daftar.php',
-        error: 'internal',
-        title: "Terjadi kesalahan internal.",
-        message: "Silakan coba lagi."
+    redirectAndSendFlashMessage(
+        'daftar.php',
+        'internal',
+        "Terjadi kesalahan internal.",
+        "Silakan coba lagi."
     );
     return;
 }
