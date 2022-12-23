@@ -95,24 +95,24 @@ if (isset($_SESSION["username"])) {
                                     <div>
                                         <h3 class="fs-2 mt-4">Status Pendaftaran</h3>
                                         <?php
-                                        if($pendaftar['status'] == null){
+                                    if ($pendaftar['status'] == null) {
                                             echo
                                             '<select class="form-select select-status py-3 text-white fw-bolder" name="status" aria-label="Default select example">
-                                                <option selected class="py-3 fw-bolder" >Belum Diverifikasi</option>
+                                                <option selected class="py-3 fw-bolder" value="">Belum Diverifikasi</option>
                                                 <option value="1"  class="p-3 fw-bolder text-success" style="padding: 3rem !important;">Lolos Berkas</option>
                                                 <option value="2"  class="p-3 fw-bolder text-danger">Tidak Lolos Berkas</option>
                                             </select>';
-                                        } else if($pendaftar['status'] == '1'){
+                                    } else if ($pendaftar['status'] == '1') {
                                             echo
                                             '<select class="form-select select-status py-3 text-white fw-bolder" name="status" aria-label="Default select example">
-                                                <option class="py-3 fw-bolder" >Belum Diverifikasi</option>
+                                                <option class="py-3 fw-bolder" value="">Belum Diverifikasi</option>
                                                 <option selected value="1"  class="p-3 fw-bolder text-success" style="padding: 3rem !important;">Lolos Berkas</option>
                                                 <option value="2"  class="p-3 fw-bolder text-danger">Tidak Lolos Berkas</option>
                                             </select>';
-                                        } else if($pendaftar['status'] == '2'){
+                                    } else if ($pendaftar['status'] == '2') {
                                             echo
                                             '<select class="form-select select-status py-3 text-white fw-bolder" name="status" aria-label="Default select example">
-                                                <option class="py-3 fw-bolder" >Belum Diverifikasi</option>
+                                                <option class="py-3 fw-bolder" value="">Belum Diverifikasi</option>
                                                 <option value="1"  class="p-3 fw-bolder text-success" style="padding: 3rem !important;">Lolos Berkas</option>
                                                 <option selected value="2"  class="p-3 fw-bolder text-danger">Tidak Lolos Berkas</option>
                                             </select>';
