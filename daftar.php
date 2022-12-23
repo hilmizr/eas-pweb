@@ -1,3 +1,7 @@
+<?php
+session_start()
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -41,15 +45,26 @@
                             </div>
                         </div>
 
-                        <?php if (isset($_COOKIE["error"])) : ?>
+
+                        <?php if (isset($_SESSION["error"])) : ?>
                             <div class="alert alert-danger alert-dismissible fade show my-3" role="alert">
-                                <strong class="text-danger"><?= $_COOKIE["title"] ?></strong>
-                                <?php if ($_COOKIE["error"] == "database" || $_COOKIE["error"] == "database") : ?>
-                                    <p> <?= $_COOKIE["message"] ?> </p>
+                                <strong class="text-danger"><?= $_SESSION["title"] ?></strong>
+                                <?php
+                                $errorTypeContainsMessage = ['database', 'image', 'internal'];
+
+                                if (in_array($_SESSION["error"], $errorTypeContainsMessage)) : ?>
+                                    <span class="text-dark"> <?= $_SESSION["message"] ?> </span>
                                 <?php endif ?>
-                                <button id="alertButton" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         <?php endif ?>
+
+                        <?php
+                        unset($_SESSION["error"]);
+                        unset($_SESSION["title"]);
+                        unset($_SESSION["message"]);
+                        ?>
 
                         <form id="registerForm" action="proses_daftar.php" method="POST" enctype="multipart/form-data">
 
@@ -175,9 +190,8 @@
                                                     <input style="display:none;" class="form-control bg-gray border-0 form-control-lg" type="file" id="certificate" name="certificate">
                                                 </div>
 
-                                                <button id="submitButton" class="btn collapsed w-100 buttonAccordionPrimary mb-3 fw-bolder">
-                                                    Submit
-                                                </button>
+                                                <button id="submitButton" type="submit" name="register" class="btn w-100 buttonAccordionPrimary mb-3 fw-bolder">
+                                                    Submit</button>
 
                                                 <button onclick="navToSecondAccordion()" class="btn collapsed w-100 buttonAccordionSecondary fw-bolder" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                                                     Back
