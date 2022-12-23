@@ -79,9 +79,8 @@ if (isset($_SESSION["username"])) {
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-center">
-                            <?php if ($user["status"] === null) {
-                                echo '<a href="#" class="btn mt-4" id="edit-btn">Edit</a>';
-                            } else if ($user["status"] == '1') {
+                            <?php
+                            if ($user["status"] == '1') {
                                 echo '<a href="print-kartu-ujian.php" class="btn mt-4" id="kartu-btn">Lihat Kartu Ujian</a>';
                             } else if ($user["status"] == '2') {
                                 echo '<p href="#" class="btn mt-4 text-white" id="kartu-btn-tidak">Tetap semangat dan jangan menyerah untuk mencoba di kesempatan berikutnya!</p>';
