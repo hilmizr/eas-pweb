@@ -1,38 +1,5 @@
 <?php
-
-include 'config.php';
-
-error_reporting(0);
-
 session_start();
-
-$message = "";
-try {
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    if (isset($_POST["login"])) {
-        if (empty($_POST["username"]) || empty($_POST["password"])) {
-            $message = 'All fields are required';
-        } else {
-            $query = "SELECT * FROM pendaftar WHERE username = :username AND password = :password";
-            $statement = $pdo->prepare($query);
-            $statement->execute(
-                array(
-                    'username'     =>     $_POST["username"],
-                    'password'     =>     $_POST["password"]
-                )
-            );
-            $count = $statement->rowCount();
-            if ($count > 0) {
-                $_SESSION["username"] = $_POST["username"];
-                header("location: home.php");
-            } else {
-                $message = 'Wrong Data';
-            }
-        }
-    }
-} catch (PDOException $error) {
-    $message = $error->getMessage();
-}
 ?>
 
 <!DOCTYPE html>
@@ -64,8 +31,29 @@ try {
                         <div class="d-flex justify-content-center">
                             <h1 class="mt-4">Login</h1>
                         </div>
+
+                        <?php if (isset($_SESSION["error"])) : ?>
+                            <div class="alert w-75 m-auto alert-danger alert-dismissible fade show  my-3" role="alert">
+                                <strong class="text-danger"><?= $_SESSION["title"] ?></strong>
+                                <?php
+                                $errorTypeContainsMessage = ['database', 'required'];
+
+                                if (in_array($_SESSION["error"], $errorTypeContainsMessage)) : ?>
+                                    <span class="text-dark"> <?= $_SESSION["message"] ?> </span>
+                                <?php endif ?>
+
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php endif ?>
+
+                        <?php
+                        unset($_SESSION["error"]);
+                        unset($_SESSION["title"]);
+                        unset($_SESSION["message"]);
+                        ?>
+
                         <div class="d-flex justify-content-center">
-                            <form method="POST" enctype="multipart/form-data">
+                            <form action="proses_masuk.php" method="POST">
                                 <fieldset class="my-4">
                                     <p>
                                         <label for="username" class="d-block text-start">Username: </label>
@@ -76,7 +64,7 @@ try {
                                         <input type="password" name="password" maxlength="50" class="my-2 py-3 bg-input" size="48" />
                                     </p>
                                     <p class="d-flex justify-content-center my-4">
-                                        <input type="submit" value="Masuk" name="login" class="fw-bold btn btn-brand me-2 px-2" id="masuk-btn" />
+                                        <button type="submit" name="login" class="fw-bold btn btn-brand me-2" id="masuk-btn">Masuk</button>
                                     </p>
                                 </fieldset>
                             </form>
