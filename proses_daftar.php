@@ -32,7 +32,7 @@ try {
         redirectAndSendFlashMessage(
             'daftar.php',
             'password',
-            'Password tidak sama!',
+            'Password tidak sama!'
         );
         return;
     }

@@ -24,7 +24,7 @@ try {
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    if (empty($_POST["username"]) || empty($_POST["password"])) {
+    if (empty($username) || empty($password)) {
         redirectAndSendFlashMessage(
             'masuk.php',
             'required',
@@ -34,15 +34,15 @@ try {
         return;
     }
 
-    $sql = $pdo->prepare("SELECT * FROM pendaftar WHERE username = :username");
-    $sql->bindParam(':username', $_POST["username"]);
+    $sql = $pdo->prepare("SELECT * FROM pendaftar WHERE username=:username");
+    $sql->bindParam(':username', $username);
     $sql->execute();
 
     if ($sql->rowCount() <= 0) {
         redirectAndSendFlashMessage(
             'masuk.php',
             'notFound',
-            'Pengguna tidak terdaftar!',
+            'Pengguna tidak terdaftar!'
         );
         return;
     }
@@ -53,7 +53,7 @@ try {
         redirectAndSendFlashMessage(
             'masuk.php',
             'password',
-            'Username atau password tidak valid!',
+            'Username atau password tidak valid!'
         );
         return;
     }
@@ -70,7 +70,7 @@ try {
         'masuk.php',
         'database',
         'Terjadi kesalahan saat menghubungkan ke database.',
-        'Silakan coba lagi.',
+        'Silakan coba lagi.'
     );
     return;
 }
