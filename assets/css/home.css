@@ -40,11 +40,6 @@
         color: var(--c-brand-light);
     }
 
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
     .section-padding {
         padding-top: 140px;
         padding-bottom: 140px;
@@ -85,16 +80,11 @@
         object-fit: contain;
     }
 
-    .profile {
-        display: flex;
-        align-items: center;
-    }
-
     .profile-picture {
-        height: 50px;
-        width: 50px;
+        height: 3rem;
+        width: 3rem;
         border-radius: 50%;
-        object-fit: cover;
+        object-fit: contain;
         margin-right: 10px;
     }
 
@@ -126,9 +116,7 @@
 
     #user-photo {
         border-radius: 25px;
-        object-fit: cover;
-        width: 359.53px;
-        height: 432.62px;
+        object-fit: contain;
     }
 
     #edit-btn {
@@ -165,8 +153,6 @@
     #card-text-red {
         color: var(--c-tidak);
     }
-
-
 
     #main-title {
         color: var(--c-brand);

@@ -34,8 +34,8 @@ if (isset($_SESSION["username"])) {
 
             <!-- Navbar -->
             <nav>
-                <img src="https://kkp.go.id/an-component/media/upload-gambar-pendukung/kkp/DATA%20KKP/2019/Logo%20KKP/KKP%20Ind.png" alt="Brand Logo" class="brand-logo">
-                <div class="profile">
+                <img src="assets/img/logo.png" alt="Brand Logo" class="brand-logo">
+                <div class="d-flex align-items-center">
                     <img src="images/<?= $user['foto_diri'] ?>" alt="Profile Picture" class="profile-picture">
                     <div class="username-and-id">
                         <span class="username"><?= $_SESSION["username"] ?></span>
@@ -50,7 +50,7 @@ if (isset($_SESSION["username"])) {
                 <div class="row justify-content-center">
                     <div class="card p-5" style="width: 100%;">
                         <div class="row no-gutters">
-                            <div class="col-md-8">
+                            <div class="col-lg-8">
                                 <div class="card-body">
                                     <h1 class="card-title" id="main-title">Profil Pendaftar</h1>
                                     <h5 class="card-title" id="card-label">Nama</h5>
@@ -61,29 +61,29 @@ if (isset($_SESSION["username"])) {
                                     <p class="card-text"><?= $user["jabatan"] ?></p>
                                     <?php
                                     echo '<h5 class="card-title mt-3" id="card-label">Status Pendaftaran</h5>';
-                                     if ($user["status"] === null) {
+                                    if ($user["status"] === null) {
                                         echo '<p class="card-text">Belum Diverifikasi</p>';
                                     } else if ($user["status"] == '1') {
                                         echo '<p class="card-text" id="card-text-green">Lolos Berkas</p>';
                                         echo '<h5 class="card-title mt-3" id="card-label">Nomor Peserta</h5>';
-                                        echo '<p class="card-text" id="card-text">'.$user['no_peserta'].'</p>';
+                                        echo '<p class="card-text" id="card-text">' . $user['no_peserta'] . '</p>';
                                         echo '<h5 class="card-title mt-3" id="card-label">Lokasi Ujian</h5>';
-                                        echo '<p class="card-text" id="card-text">'.$user['lokasi_tes'].'</p>';
+                                        echo '<p class="card-text" id="card-text">' . $user['lokasi_tes'] . '</p>';
                                     } else if ($user["status"] == '2') {
                                         echo '<p class="card-text" id="card-text-red">Tidak Lolos Berkas</p>';
                                     } ?>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <img src="images/<?= $user['foto_diri'] ?>" class="card-img shadow-lg" id="user-photo" alt="User profile picture">
+                            <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                                <img src="images/<?= $user['foto_diri'] ?>" class="card-img max-w-100 h-auto" id="user-photo" alt="User profile picture">
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-center">
                             <?php if ($user["status"] === null) {
                                 echo '<a href="#" class="btn mt-4" id="edit-btn">Edit</a>';
-                            } else if ($user["status"] == '1') { 
+                            } else if ($user["status"] == '1') {
                                 echo '<a href="print-kartu-ujian.php" class="btn mt-4" id="kartu-btn">Lihat Kartu Ujian</a>';
-                            } else if ($user["status"] == '2'){
+                            } else if ($user["status"] == '2') {
                                 echo '<p href="#" class="btn mt-4 text-white" id="kartu-btn-tidak">Tetap semangat dan jangan menyerah untuk mencoba di kesempatan berikutnya!</p>';
                             }
                             ?>
