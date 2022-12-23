@@ -17,6 +17,25 @@
     --transition: all 0.5s ease;
 }
 
+/* Helpers */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-base);
+    line-height: 1.7;
+    color: var(--c-body);
+    font-weight: 600;
+}
+
+
+body {
+    background-image: url(../img/BG.png);
+    margin: 0;
+    height: 100%;
+}
+
 /* Utilities */
 .bg-brand {
     background-color: var(--c-brand);
@@ -25,6 +44,8 @@
 .bg-gray {
     background-color: var(--c-gray);
 }
+
+/* Styles */
 
 .horizontalLine {
     position: absolute;
@@ -81,82 +102,5 @@ input:focus {
     border-style: none;
     border-radius: 1rem;
     min-width: 65%;
-}
-
-/* Helpers */
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: var(--font-base);
-    line-height: 1.7;
-    color: var(--c-body);
-    font-weight: 600;
-}
-
-
-body {
-    background-image: url(../img/BG.png);
-    margin: 0;
-    height: 100%;
-}
-
-.fixed {
-    overflow: hidden;
-    display: block;
-}
-
-/* Hero */
-
-.auth-logo {
-    object-fit: cover;
-    width: 25%;
-    min-height: auto;
-}
-
-#subtitle {
-    font-weight: 400;
-    color: var(--c-light);
-    font-size: 1rem;
-    align-self: center;
-    width: 500px;
-}
-
-/* .btn {
-    display: inline-block;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 45px;
-    border-radius: 12px;
-    font-size: 1.2rem;
-    transition: all .4s ease-in-out;
-}
-
-.btn:hover {
-    box-shadow: 0 0 10px var(--c-brand);
-    text-shadow: 0 0 10px var(--c-brand);
-} */
-
-#masuk-btn {
-    background-color: var(--c-brand);
-    border: 2px solid transparent;
-    color: var(--c-dark);
-    transition: all .4s ease-in-out;
-}
-    
-#hero-content {
-    margin-top: -50px;
-    position: relative;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    display: flex;
-}
-
-.bg-input{
-    background-color: #0F1730;
-    border-style: none;
-    border-radius: 10px;
 }
 
